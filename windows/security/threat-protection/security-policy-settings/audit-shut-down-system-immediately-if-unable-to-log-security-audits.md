@@ -101,6 +101,14 @@ Enable the **Audit: Shut down system immediately if unable to log security audit
 
 If you enable this policy setting, the administrative burden can be significant, especially if you also configure the **Retention method for the Security log** to **Do not overwrite events** (clear log manually). This configuration causes a repudiation threat (a backup operator could deny that they backed up or restored data) to become a denial of service (DoS) vulnerability because a server could be forced to shut down if it is overwhelmed with logon events and other security events that are written to the security event log. Also, because the shutdown is abrupt, it is possible that irreparable damage to the operating system, applications, or data could result. Although the NTFS file system maintains its integrity when this type of computer shutdown occurs, there is no guarantee that every data file for every application will still be in a usable form when the device restarts.
 
+## Registry key location and possible value:
+Location: HKLM\System\CCS\Control\LSA\CrashOnAuditFail = x
+   Values:
+   0 = Default/not set
+   1 = Feature is on
+   2 = Feature is on and triggered
+   Related link: https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-2000-server/cc963220(v=technet.10)?redirectedfrom=MSDN
+
 ## Related topics
 
 - [Security Options](security-options.md)
